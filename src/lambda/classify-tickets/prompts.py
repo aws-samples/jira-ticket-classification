@@ -6,7 +6,6 @@ ACCESS_PERMISSIONS_REQUEST: Used when someone doesn't have the write permissions
 BUG_FIXING: Used when something is failing or a bug is found. Often times the descriptions include logs or technical information.
 CREATING_UPDATING_OR_DEPRECATING_DOCUMENTATION: Used when documentation is out of date. Usually references documentation in the text.
 MINOR_REQUEST: This is rarely used. Usually a bug fix but it's very minor. If it seems even remotely complicated use BUG_FIXING.
-REQUEST_FROM_MENU_OF_SERVICES: Usually a request to perform an engineering action that is known. Migrate something, update something, etc..
 SUPPORT_TROUBLESHOOTING: Used when asking for support for some engineering event. Can also look like an automated ticket.
 TEAM_LEVEL_CONTINIOUS_IMPROVEMENT: Usually describes engineering operational work. It usually lists a problem or action and what needs to be done. This is how you differentiate between this and bugs. 
 </classifications>
