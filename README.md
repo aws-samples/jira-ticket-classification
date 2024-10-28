@@ -4,6 +4,10 @@
 
 Jira Ticket Classification is an automated system designed to classify Jira tickets using Amazon Bedrock's AI capabilities. This project can be used with Jira Server exports, providing automation capabilities similar to those available in Jira Cloud.
 
+## Architecture Diagram
+
+![Ticket Classification Arch Diagram](./media/architecture-diagram.png)
+
 ## Features
 
 - Automatically classifies Jira tickets based on their content
@@ -11,6 +15,9 @@ Jira Ticket Classification is an automated system designed to classify Jira tick
 - Processes Jira ticket exports placed in S3
 - Uses AWS Glue for data deduplication
 - Designed to work with Jira Server exports
+
+
+**Note**: Deduplication is important if you allow users to manually upload Jira exports and also run the automatic pull. If you can ensure no incremental imports contain duplicates, you can remove the AWS Glue job.
 
 ## How It Works
 
@@ -52,7 +59,7 @@ To tear down the project:
 2. Run `terraform destroy` to remove all resources created by this project.
 
 ## Security
-Make sure to run tfsec on the infrastruction folder any time you make an additional change to the code. These security warnings have been suppressed because they don't make sense for the project. Before suppressing any warnings, ensure it is the right thing to do. 
+Make sure to run tfsec on the infrastruction folder any time you make an additional change to the code.
 
 Run TFSec
 ```bash
@@ -60,6 +67,8 @@ $ tfsec .
 ```
 
 **Suppressed Warnings**
+Make sure to run tfsec on the infrastruction folder any time you make an additional change to the code. These security warnings have been suppressed, but review these prior to putting implementing this solution in production. Additionally, this sample repo is using AWS managed keys. It's encouraged to use customer managed keys (CMKs) in a prod environment.
+
 1. Secrets Manager "aws-ssm-secret-use-customer-key": This warning requires us to use a KMS key for our secret.
 2. S3 "aws-s3-enable-bucket-logging": Remove and turn on if bucket logging makes sense for your use case
 3. S3 Bucket Encyption "aws_s3_bucket_server_side_encryption_configuration": We are using an AWS managed encryption key
@@ -90,7 +99,3 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## Support
 
 For support or to report issues, please open an issue in the project's GitHub repository.
-
----
-
-For more detailed information on the implementation and architecture, please refer to the project documentation.
